@@ -17,6 +17,7 @@ Urban parking prices that remain static lead to inefficiencies like underutiliza
 - Simple and interpretable
 - Acts as a baseline reference
 
+Price(t+1) = Price(t) + α * (Occupancy / Capacity)
  
 ### 🔹 Model 2: Demand-Based Price Function
 - Uses real-time features: Occupancy, Queue, Traffic, Events, Vehicle Type
@@ -24,11 +25,9 @@ Urban parking prices that remain static lead to inefficiencies like underutiliza
 - Smooth and bounded price changes
 - More adaptable and realistic
 
-## 🧠 Function
+Demand = α * (Occupancy / Capacity) + β * QueueLength − γ * Traffic + δ * IsSpecialDay + ε * VehicleTypeWeight
+Price = Base_Price  * ( 1 + λ * Demand)
 
-```math
-MODEL 1: Price(t+1) = Price(t) + α * (Occupancy / Capacity)
 
-MODEL 2 : Demand = α * (Occupancy / Capacity) + β * QueueLength − γ * Traffic + δ * IsSpecialDay + ε * VehicleTypeWeight
-          Price = Base_Price  * ( 1 + λ * Demand)
+
 
