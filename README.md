@@ -39,7 +39,10 @@ Urban parking is a limited resource, and static pricing often leads to inefficie
 ## 🔍 Detailed Architecture and Workflow
 
 - **Data Ingestion**:  
-  We use **Pathway** to simulate real-time streaming of parking lot data (occupancy, queue length, traffic, special day indicators, vehicle type). Data is processed at 30-minute intervals from 8 AM to 4:30 PM.
+  We use **Pathway** to simulate real-time streaming of parking lot data (occupancy, queue length, traffic, special day indicators, vehicle type). Data is processed at 30-minute intervals from 8 AM to 4:30 PM      from 14 Parking lots over 73 days.
+
+- **Features included**:
+  SystemCodeNumber, LastUpdatedTime, LastUpdatedDay, Occupancy, Capacity, QueueLength, VehicleType, TrafficCondtiotnNearby, IsSpecialDay
 
 - **Pricing Models**:
   - **Baseline Linear Model**  
