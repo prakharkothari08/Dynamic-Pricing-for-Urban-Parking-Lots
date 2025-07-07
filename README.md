@@ -1,13 +1,13 @@
 
 # 🅿️ Dynamic Pricing for Urban Parking Lots
 
-This repository contains our implementation of dynamic pricing models for urban parking lots, developed as part of the **Summer Analytics 2025 Capstone Project** hosted by the **Consulting & Analytics Club × Pathway**.
+This repository contains my implementation of dynamic pricing models for urban parking lots, developed as part of the **Summer Analytics 2025 Capstone Project** hosted by the **Consulting & Analytics Club × Pathway**.
 
-The goal is to simulate a data-driven dynamic pricing system that adjusts parking fees based on real-time demand, traffic, and competitive factors. Our models help optimize parking space utilization in cities by preventing overcrowding and underutilization.
+The goal is to simulate a data-driven dynamic pricing system that adjusts parking fees based on real-time demand, traffic, and competitive factors. My models help optimize parking space utilization in cities by preventing overcrowding and underutilization.
 
 ## 🚀 Project Overview
 
-Urban parking is a limited resource, and static pricing often leads to inefficiency — lots are either overfilled or empty at various times. Our solution uses real-time data streams to:
+Urban parking is a limited resource, and static pricing often leads to inefficiency — lots are either overfilled or empty at various times. My solution uses real-time data streams to:
 
 - **Predict demand**
 - **Adjust prices dynamically**
