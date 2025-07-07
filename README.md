@@ -34,39 +34,7 @@ Urban parking is a limited resource, and static pricing often leads to inefficie
 
 ---
 
-## 🏗️ Project Architecture
 
-```mermaid
-flowchart LR
-    subgraph Data Ingestion
-        A1[Real-time data stream: occupancy, queue, traffic, etc.]
-        A2[Pathway stream processor]
-    end
-
-    subgraph Pricing Engine
-        B1[Baseline Linear Model]
-        B2[Demand-Based Model]
-        B3[Competitive Pricing (optional)]
-    end
-
-    subgraph Outputs
-        C1[Dynamic Price Recommendations]
-        C2[Visualizations via Bokeh]
-        C3[Vehicle rerouting suggestions (optional)]
-    end
-
-    A1 --> A2
-    A2 --> B1
-    A2 --> B2
-    A2 --> B3
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    C1 --> C2
-    B3 --> C3
-
-
----
 
 ## 🔍 Detailed Architecture and Workflow
 
@@ -108,17 +76,6 @@ flowchart LR
 - Price fluctuations are smoother and more demand-sensitive.
 
 
----
-
-## 📂 Repository Structure
-
-```
-├── Baseline_Linear_Price_Model.ipynb # Linear-Based dynamic pricing notebook
-├── Demand_Based_Price_Function.ipynb  # Demand-based dynamic pricing notebook
-├── README.md  # Project documentation
-├── data/  # Data files and simulated streams 
-└── images/  # Architecture diagrams, graphs
-```
 
 ---
 
