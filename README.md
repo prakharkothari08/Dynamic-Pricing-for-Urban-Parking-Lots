@@ -138,20 +138,13 @@ The models are based on several assumptions to simplify modeling, ensure fairnes
 ### 🔹 Model 1: Baseline Linear Pricing Assumptions
 
 - **Occupancy-Only Dependency**: Price changes proportionally to the occupancy rate.
-- **Linear Relationship**:
-  \[
-  Price_{t+1} = Price_t + \alpha \cdot \left(\frac{Occupancy}{Capacity}\right)
-  \]
+
 - **Simplification**: Ignores other impactful features such as queue, traffic, or vehicle type.
 
 ---
 
 ### 🔹 Model 2: Demand-Based Pricing Assumptions
 
-- **Multi-Feature Demand Function**:
-  \[
-  Demand = \alpha \cdot \left(\frac{Occupancy}{Capacity}\right) + \beta \cdot QueueLength - \gamma \cdot Traffic + \delta \cdot IsSpecialDay + \epsilon \cdot VehicleTypeWeight
-  \]
 
 - **Vehicle Type Mapping**:
   - Car = 1.0  
@@ -164,10 +157,6 @@ The models are based on several assumptions to simplify modeling, ensure fairnes
   - Heavier vehicles → **increase demand**
 
 - **Demand Normalization**: Demand values are scaled between 0 and 1 (Min-Max normalization).
-- **Smooth Price Scaling**:
-  \[
-  Price_t = BasePrice \cdot (1 + \lambda \cdot NormalizedDemand)
-  \]
 
 ---
 
