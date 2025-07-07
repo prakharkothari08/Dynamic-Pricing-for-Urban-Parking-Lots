@@ -162,7 +162,6 @@ The models are based on several assumptions to simplify modeling, ensure fairnes
 
 
 
----
 
 ## 📄 References
 
