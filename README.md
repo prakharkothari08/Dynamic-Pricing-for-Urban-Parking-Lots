@@ -56,6 +56,35 @@ Urban parking is a limited resource, and static pricing often leads to inefficie
     
     where price is kept between 0.5× and 2× of the base price.
 
+
+## 🏗️ Project Architecture
+
+```mermaid
+flowchart LR
+    subgraph Data_Ingestion
+        A1[Real-time data stream: occupancy, queue, traffic, etc.]
+        A2[Pathway stream processor]
+    end
+
+    subgraph Pricing_Engine
+        B1[Baseline Linear Model]
+        B2[Demand-Based Model]
+    end
+
+    subgraph Outputs
+        C1[Dynamic Price Recommendations]
+        C2[Visualizations via Bokeh]
+    end
+
+    A1 --> A2
+    A2 --> B1
+    A2 --> B2
+    B1 --> C1
+    B2 --> C1
+    C1 --> C2
+```
+
+
 ## 🔍 Visualizations
 
 ### 📊 Model 1: Baseline Linear Pricing
