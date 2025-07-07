@@ -11,7 +11,6 @@ Urban parking is a limited resource, and static pricing often leads to inefficie
 
 - **Predict demand**
 - **Adjust prices dynamically**
-- **Suggest vehicle rerouting when needed**
 
 ### Implemented Models
 
@@ -20,9 +19,6 @@ Urban parking is a limited resource, and static pricing often leads to inefficie
 
 2. **Demand-Based Price Function**  
    Advanced pricing using occupancy, queue length, traffic, special day indicators, and vehicle type.
-
-3. *(Optional for extension)* **Competitive Price Function**  
-   Factor in nearby competitor prices using geospatial data.
 
 ---
 
@@ -68,7 +64,7 @@ flowchart LR
     B3 --> C1
     C1 --> C2
     B3 --> C3
-```
+
 
 ---
 
@@ -80,49 +76,49 @@ flowchart LR
 - **Pricing Models**:
   - **Baseline Linear Model**  
     Adjusts price linearly with occupancy:
-    \[
-    P_{t+1} = P_t + lpha rac{	ext{Occupancy}}{	ext{Capacity}}
-    \]
+    
+    Price(t+1) = Price(t) +  α · (Occupancy / Capacity)
 
   - **Demand-Based Model**  
     Uses weighted sum of features to compute normalized demand and update price smoothly:
-    \[
-    	ext{Demand} = lpha rac{	ext{Occupancy}}{	ext{Capacity}} + eta \cdot 	ext{QueueLength} - \gamma \cdot 	ext{Traffic} + \delta \cdot 	ext{IsSpecialDay} + \epsilon \cdot 	ext{VehicleTypeWeight}
-    \]
-    \[
-    P_t = 	ext{BasePrice} \cdot (1 + \lambda \cdot 	ext{NormalizedDemand})
-    \]
+    
+    Demand = α·(Occupancy/Capacity) +β·QueueLength−γ·Traffic+δ·IsSpecialDay+ε·VehicleTypeWeight
+
+    Price(t) = BasePrice · (1 + λ · NormalizedDemand) 
+    
     where price is kept between 0.5× and 2× of the base price.
 
-  - **Competitive Pricing (optional)**  
-    Enhances pricing with competitive intelligence by:
-    - Computing distance to nearby lots
-    - Comparing competitor prices
-    - Adjusting own price or suggesting rerouting
+## 🔍 Visualizations
 
-- **Visualization**:
-  - Real-time Bokeh plots for price trends per lot.
-  - Optional: comparison plots of competitor pricing.
+### 📊 Model 1: Baseline Linear Pricing
+
+![Model 1 Pricing Visualization](images/model1_plot.png)
+
+- This plot shows how price varies with time based on simple occupancy logic.
+- The pattern is linear and directly responds to capacity changes.
+
+---
+
+### 📈 Model 2: Demand-Based Pricing
+
+![Model 2 Pricing Visualization](images/model2_plot.png)
+
+- This visualization reflects a more complex pricing behavior.
+- It incorporates queue length, vehicle type, traffic, and special events.
+- Price fluctuations are smoother and more demand-sensitive.
+
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-├── Demand_Based_Price_Function_cleaned.ipynb  # Demand-based dynamic pricing notebook
-├── Baseline_Linear_Price_Function_cleaned.ipynb  # Baseline linear pricing notebook
+├── Baseline_Linear_Price_Model.ipynb # Linear-Based dynamic pricing notebook
+├── Demand_Based_Price_Function.ipynb  # Demand-based dynamic pricing notebook
 ├── README.md  # Project documentation
-├── data/  # Data files and simulated streams (if added)
-└── images/  # (optional) Architecture diagrams, graphs
+├── data/  # Data files and simulated streams 
+└── images/  # Architecture diagrams, graphs
 ```
-
----
-
-## 📌 How to Run
-
-1. Open the notebooks in **Google Colab**.
-2. Follow instructions in each notebook to run simulations and generate dynamic prices.
-3. Visualizations will update in real-time using Bokeh.
 
 ---
 
@@ -131,3 +127,4 @@ flowchart LR
 - [Pathway Docs: Real-Time App](https://pathway.com/developers/user-guide/introduction/first_realtime_app_with_pathway/)
 - [Summer Analytics 2025](https://www.caciitg.com/sa/course25/)
 - Project problem statement (see `problem_statement.pdf`)
+- Sample_Notebook.ipynb
