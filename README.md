@@ -117,6 +117,60 @@ flowchart LR
 - It incorporates queue length, vehicle type, traffic, and special events.
 - Price fluctuations are smoother and more demand-sensitive.
 
+---
+
+## 🧩 Assumptions
+
+The models are based on several assumptions to simplify modeling, ensure fairness, and match real-world constraints.
+
+---
+
+### 🔹 General Assumptions
+
+- **Base Price Initialization**: All models start from a fixed **base price of $10**.
+- **Data Integrity**: Real-time input data (occupancy, queue, traffic, etc.) is assumed accurate and timely.
+- **Lot Uniformity**: All 14 parking lots are treated uniformly in logic and constraints.
+- **Bounded Price Behavior**: Prices are always constrained between **$5 and $20** to prevent erratic pricing.
+- **No Historical Memory**: Models use current snapshot data; no trend or time-lag factors are incorporated.
+
+---
+
+### 🔹 Model 1: Baseline Linear Pricing Assumptions
+
+- **Occupancy-Only Dependency**: Price changes proportionally to the occupancy rate.
+- **Linear Relationship**:
+  \[
+  Price_{t+1} = Price_t + \alpha \cdot \left(\frac{Occupancy}{Capacity}\right)
+  \]
+- **Simplification**: Ignores other impactful features such as queue, traffic, or vehicle type.
+
+---
+
+### 🔹 Model 2: Demand-Based Pricing Assumptions
+
+- **Multi-Feature Demand Function**:
+  \[
+  Demand = \alpha \cdot \left(\frac{Occupancy}{Capacity}\right) + \beta \cdot QueueLength - \gamma \cdot Traffic + \delta \cdot IsSpecialDay + \epsilon \cdot VehicleTypeWeight
+  \]
+
+- **Vehicle Type Mapping**:
+  - Car = 1.0  
+  - Bike = 0.7  
+  - Truck = 1.3
+
+- **Feature Impact Direction**:
+  - Occupancy, queue length, special days → **increase demand**
+  - Traffic congestion → **decreases demand**
+  - Heavier vehicles → **increase demand**
+
+- **Demand Normalization**: Demand values are scaled between 0 and 1 (Min-Max normalization).
+- **Smooth Price Scaling**:
+  \[
+  Price_t = BasePrice \cdot (1 + \lambda \cdot NormalizedDemand)
+  \]
+
+---
+
 
 
 ---
