@@ -9,10 +9,9 @@ Developed using **Python, Pandas, NumPy, Pathway, and Bokeh**
 
 Urban parking lots often use **static pricing**, which causes **overcrowding or underutilization**. This project solves that by implementing **dynamic pricing models** that adapt in real-time using historical and live data.
 
-We built:
+ Ibuilt:
 - A **Baseline Linear Model**
 - A **Demand-Based Pricing Model**
-- Optional path to extend into **Competition-Aware Pricing**
 
 Real-time inputs such as **occupancy, queue, traffic, special events, and vehicle type** are used to calculate **demand** and **adjust prices** accordingly.
 
